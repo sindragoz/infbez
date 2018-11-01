@@ -1,0 +1,2 @@
+admin;;admin;False;True;28.10.2018
+user;123;user;False;False;28.10.2018

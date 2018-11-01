@@ -1,0 +1,12 @@
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\bin\Debug\InfoSecurityLab1.exe.config
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\bin\Debug\InfoSecurityLab1.exe
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\bin\Debug\InfoSecurityLab1.pdb
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.csprojResolveAssemblyReference.cache
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.LoginForm.resources
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.Properties.Resources.resources
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.csproj.GenerateResource.Cache
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.exe
+c:\users\sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.pdb
+C:\Users\Sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.CabinetForm.resources
+C:\Users\Sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.UserForm.resources
+C:\Users\Sindragoz\documents\visual studio 2015\Projects\InfoSecurityLab1\InfoSecurityLab1\obj\Debug\InfoSecurityLab1.ChangePassForm.resources
