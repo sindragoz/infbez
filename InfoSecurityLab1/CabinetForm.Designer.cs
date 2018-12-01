@@ -39,14 +39,14 @@
             this.loginlbl = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.savebtn = new System.Windows.Forms.Button();
+            this.userWorkingPanel = new System.Windows.Forms.Panel();
             this.edituserbtn = new System.Windows.Forms.Button();
             this.addbtn = new System.Windows.Forms.Button();
             this.userlb = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.roleGb.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.userWorkingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // rolelbl
@@ -170,26 +170,15 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // panel1
+            // userWorkingPanel
             // 
-            this.panel1.Controls.Add(this.savebtn);
-            this.panel1.Controls.Add(this.edituserbtn);
-            this.panel1.Controls.Add(this.addbtn);
-            this.panel1.Controls.Add(this.userlb);
-            this.panel1.Location = new System.Drawing.Point(12, 170);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 309);
-            this.panel1.TabIndex = 10;
-            // 
-            // savebtn
-            // 
-            this.savebtn.Location = new System.Drawing.Point(423, 68);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(91, 23);
-            this.savebtn.TabIndex = 11;
-            this.savebtn.Text = "Save changes";
-            this.savebtn.UseVisualStyleBackColor = true;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
+            this.userWorkingPanel.Controls.Add(this.edituserbtn);
+            this.userWorkingPanel.Controls.Add(this.addbtn);
+            this.userWorkingPanel.Controls.Add(this.userlb);
+            this.userWorkingPanel.Location = new System.Drawing.Point(12, 170);
+            this.userWorkingPanel.Name = "userWorkingPanel";
+            this.userWorkingPanel.Size = new System.Drawing.Size(523, 309);
+            this.userWorkingPanel.TabIndex = 10;
             // 
             // edituserbtn
             // 
@@ -220,24 +209,37 @@
             this.userlb.Size = new System.Drawing.Size(400, 290);
             this.userlb.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(505, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "i";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CabinetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 492);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.userWorkingPanel);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox1);
             this.Name = "CabinetForm";
             this.Text = "Cabinet";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cabinet_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CabinetForm_FormClosed);
             this.Load += new System.EventHandler(this.Cabinet_Load);
             this.roleGb.ResumeLayout(false);
             this.roleGb.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.userWorkingPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,10 +257,10 @@
         private System.Windows.Forms.Label idvaluelbl;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button savebtn;
+        private System.Windows.Forms.Panel userWorkingPanel;
         private System.Windows.Forms.Button edituserbtn;
         private System.Windows.Forms.Button addbtn;
         private System.Windows.Forms.ListBox userlb;
+        private System.Windows.Forms.Button button1;
     }
 }

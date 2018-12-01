@@ -58,6 +58,7 @@
     <Compile Include="ChangePassForm.Designer.cs">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CryptographyController.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

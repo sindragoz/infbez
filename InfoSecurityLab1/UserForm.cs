@@ -16,7 +16,8 @@ namespace InfoSecurityLab1
         private int editId = -1;
 
         private bool isCorrect = false;
-        public bool IsCorrect{
+        public bool IsCorrect
+        {
             get
             {
                 return isCorrect;
@@ -45,7 +46,7 @@ namespace InfoSecurityLab1
 
             set
             {
-                editId = editId==-1?value:editId;
+                editId = editId == -1 ? value : editId;
             }
         }
 
@@ -54,7 +55,7 @@ namespace InfoSecurityLab1
             InitializeComponent();
         }
 
-       
+
 
         private void UserForm_Load(object sender, EventArgs e)
         {
@@ -77,9 +78,18 @@ namespace InfoSecurityLab1
             if (logintb.Text != "admin" && passwordtb.Text != "")
             {
                 isCorrect = true;
-                newUser = new User(logintb.Text, passwordtb.Text,User.roles.user,blockcb.SelectedIndex==0,restrictcb.SelectedIndex==0);
+                DateTime lastLoginTime = new DateTime();
+                try
+                {
+                    lastLoginTime = newUser.LastLoginTime;
+                }catch
+                {
+
+                }
+                newUser = new User(logintb.Text, passwordtb.Text, User.roles.user, blockcb.SelectedIndex == 0, restrictcb.SelectedIndex == 0);
+                newUser.setLastLoginTime(lastLoginTime);
             }
-            Close();             
+            Close();
         }
     }
 }

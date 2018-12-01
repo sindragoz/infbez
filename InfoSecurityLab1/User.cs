@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace InfoSecurityLab1
 {
-   public class User
+    public class User
     {
-        private bool blocked=false;
-        public enum roles { user, admin}
-        private bool passRestrictionsOn=false;
+        CryptographyController cc;
+        private bool blocked = false;
+        public enum roles { user, admin }
+        private bool passRestrictionsOn = false;
         private roles role;
         private string login;
         private string password;
         private DateTime lastLoginTime;
         Regex regPunct = new Regex(@".*[,.;:]+");
         Regex regNum = new Regex(@".*[0-9]+");
-        Regex regMath = new Regex(@".*[\+\-\*\/]+");
+        Regex regMath = new Regex(@".*[=\+\-\*\/]+");
         public bool Blocked
         {
             get
@@ -28,8 +29,8 @@ namespace InfoSecurityLab1
 
             set
             {
-                if(role!=roles.admin)
-                blocked = value;
+                if (role != roles.admin)
+                    blocked = value;
             }
         }
 
@@ -81,12 +82,14 @@ namespace InfoSecurityLab1
         }
 
 
-        public User(         
+        public User(
             string login,
             string password,
             roles role,
             bool blocked,
-            bool passRestrictionsOn) {               
+            bool passRestrictionsOn)
+        {
+            cc = new CryptographyController();
             this.blocked = blocked;
             this.passRestrictionsOn = passRestrictionsOn;
             this.role = role;
@@ -105,8 +108,9 @@ namespace InfoSecurityLab1
             this.password = password;
         }
 
-        public User() { 
-}
+        public User()
+        {
+        }
 
         public void setLastLoginTime(DateTime d)
         {
@@ -115,10 +119,11 @@ namespace InfoSecurityLab1
         override
         public string ToString()
         {
-            return login + "; " + password + "; " + role.ToString() + "; " + blocked + "; "+ PassRestrictionsOn+"; "+lastLoginTime.ToShortDateString();
+            return login + "; " + password + "; " + role.ToString() + "; " + blocked + "; " + PassRestrictionsOn + "; " + lastLoginTime.ToShortDateString();
         }
 
-        public bool changePass(string newPass) {
+        public bool changePass(string newPass)
+        {
             if (PassRestrictionsOn)
                 if (regMath.IsMatch(newPass) && regNum.IsMatch(newPass) && regPunct.IsMatch(newPass))
                 {
@@ -126,10 +131,27 @@ namespace InfoSecurityLab1
                     return true;
                 }
                 else
-                    return false;
+                   throw new Exception("New password is incorrect");
             else
             {
                 password = newPass;
+                return true;
+            }
+
+        }
+        public bool changePass(string newPass, string encodedNewPass)
+        {
+            if (PassRestrictionsOn)
+                if (regMath.IsMatch(newPass) && regNum.IsMatch(newPass) && regPunct.IsMatch(newPass))
+                {
+                    password = encodedNewPass;
+                    return true;
+                }
+                else
+                    throw new Exception("New password is incorrect");
+            else
+            {
+                password = encodedNewPass;
                 return true;
             }
 

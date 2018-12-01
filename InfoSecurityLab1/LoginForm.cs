@@ -17,10 +17,12 @@ namespace InfoSecurityLab1
         {
             InitializeComponent();
         }
-
+        private int loginTries = 0;
         private void loginBtn_Click(object sender, EventArgs e)
         {
             User user;
+            CryptographyController cc = new CryptographyController();
+            
             try
             {
                 user=acc.tryLogIn(loginTb.Text, passTb.Text, !loginTb.Enabled);
@@ -45,6 +47,9 @@ namespace InfoSecurityLab1
                 loginTb.Enabled = true;
                 passTb.Text = "";
                 passlbl.Text = "Password";
+                loginTries++;
+                if(loginTries>=3)
+                    Application.Exit();
                 return;
             }
             

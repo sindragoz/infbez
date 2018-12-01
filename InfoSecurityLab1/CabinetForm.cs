@@ -22,6 +22,7 @@ namespace InfoSecurityLab1
 
         private void Cabinet_FormClosing(object sender, FormClosingEventArgs e)
         {
+            acc.saveChanges();
             Application.Exit();
         }
 
@@ -42,60 +43,98 @@ namespace InfoSecurityLab1
             idvaluelbl.Text = ""+userId;
             loginvaluelbl.Text = userList[userId].Login;
             logintimevaluelbl.Text= userList[userId].LastLoginTime.ToShortDateString();
-            
+            userWorkingPanel.Visible = userList[userId].Role == User.roles.admin;
+
+
         }
 
         private void addbtn_Click(object sender, EventArgs e)
         {
-            UserForm userF = new UserForm();
+            try
+            {
+                UserForm userF = new UserForm();
             userF.ShowDialog();
             if (userF.IsCorrect)
             {
                 acc.addNewUser(userF.NewUser);
                 refreshList();
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void edituserbtn_Click(object sender, EventArgs e)
         {
-            if ((userlb.SelectedItem as User).Role != User.roles.admin)
+            try
             {
-                UserForm userF = new UserForm();
-                userF.edit = true;
-                userF.NewUser = userlb.SelectedItem as User;
-                userF.EditId = userlb.SelectedIndex;
-                userF.ShowDialog();
-                if (userF.IsCorrect)
+                if ((userlb.SelectedItem as User).Role != User.roles.admin)
                 {
-                    acc.editUser(userF.EditId, userF.NewUser);
-                    refreshList();
+                    UserForm userF = new UserForm();
+                    userF.edit = true;
+                    userF.NewUser = userlb.SelectedItem as User;
+                    userF.EditId = userlb.SelectedIndex;
+                    userF.ShowDialog();
+                    if (userF.IsCorrect)
+                    {
+                        acc.editUser(userF.EditId, userF.NewUser);
+                        refreshList();
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            ChangePassForm passF = new ChangePassForm();
-            passF.oldPass = userList[userId].Password;
-            passF.ShowDialog();
-            if (passF.IsCorrect)
+            try
             {
-                userList[userId].changePass(passF.newPass);
-                
-                acc.editUser(userId,userList[userId]);
-                MessageBox.Show(passF.newPass);
-                refreshList();
+                ChangePassForm passF = new ChangePassForm();
+                passF.oldPass = userList[userId].Password;
+                passF.ShowDialog();
+                if (passF.IsCorrect)
+                {
+                    userList[userId].changePass(passF.newPass);
+                    acc.editUser(userId, userList[userId]);
+                    MessageBox.Show("Password was changed!");
+                    refreshList();
+                }
+                else
+                {
+                    MessageBox.Show("Passwords are not equal!");
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            acc.saveChanges();
             Application.Exit();
         }
 
         private void savebtn_Click(object sender, EventArgs e)
         {
+
             acc.saveChanges();
+        }
+
+        private void CabinetForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+ 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form iForm = new Form() {Width=200, Height=300 };
+            iForm.Controls.Add(new Label() { Text = "Info about application!", Location=new Point(40,0), AutoSize=true });
+            iForm.Show();
         }
     }
 }

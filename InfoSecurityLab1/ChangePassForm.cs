@@ -35,7 +35,8 @@ namespace InfoSecurityLab1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(oldPass==textBox1.Text && textBox2.Text == textBox3.Text)
+            CryptographyController cc=new CryptographyController();
+            if (oldPass==cc.EncryptToSHA(textBox1.Text) && textBox2.Text == textBox3.Text)
             {
                 isCorrect = true;
                 newPass = textBox2.Text;
